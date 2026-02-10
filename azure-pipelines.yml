@@ -6,6 +6,13 @@
 pr:
 - main
 
+strategy:
+  matrix:
+    WindowImage:
+      imageName: "windows-latest"
+    LinuxImage:
+      imageName: "linux-latest"
+
 pool:
   vmImage: "ubuntu-latest"
 
