@@ -6,18 +6,8 @@
 pr:
 - main
 
-strategy:
-  matrix:
-    jdk10:
-      jdkversion: "1.10"
-      imageName: "ubuntu-latest"
-    jdk11: 
-      jdkversion: "1.11"
-      imageName: "windows-latest"
-  maxParallel: 2
-
 pool:
-  vmImage: $(imageName)
+  vmImage: "ubuntu-latest"
 
 steps:
 - task: Maven@3
@@ -25,7 +15,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: $(jdkversion)
+    jdkVersionOption: "1.11"
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
